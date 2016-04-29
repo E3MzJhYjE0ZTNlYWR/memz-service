@@ -1,6 +1,6 @@
 FROM node:5.11.0-wheezy
 
-ADD package.zip.enc package.json /home
+ADD package.zip.enc package.json /home/
 
 RUN apt-get update -y && \
 	apt-get install openssl unzip -y && \
