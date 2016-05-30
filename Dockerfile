@@ -1,4 +1,4 @@
-FROM node:5.5.0-slim
+FROM node:5.5.0-wheezy
 
 ADD package.zip.enc package.json /home/
 
