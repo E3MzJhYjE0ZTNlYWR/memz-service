@@ -15,8 +15,10 @@ EXPOSE 3000
 CMD cd /home && \
 	openssl enc -d -aes-256-cbc -in package.zip.enc -out package.zip -pass pass:$UNLOCK_KEY && \
 	unzip package.zip && \
-	mv package/* . && \
+	cp -r package/* . && \
+	rm -rf package && \
 	cd service && \
 	mkdir data && \ 
-	node service/src/Service.js
+	npm install --production && \
+	node src/Service.js
 	
