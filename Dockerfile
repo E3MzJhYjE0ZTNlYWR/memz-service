@@ -5,7 +5,9 @@ ADD package.zip.enc package.json /home/
 RUN apt-get update -y && \
 	apt-get install openssl unzip -y && \
 	apt-get clean && \
-	cd /home && \
+	mkdir -p /home/service && \
+	cp /home/package.json /home/service && \
+	cd /home/service && \
 	npm install --production
 
 EXPOSE 3000
@@ -14,7 +16,7 @@ CMD cd /home && \
 	openssl enc -d -aes-256-cbc -in package.zip.enc -out package.zip -pass pass:$UNLOCK_KEY && \
 	unzip package.zip && \
 	mv package/* . && \
+	cd service && \
 	mkdir data && \ 
-	export NODE_PATH=./src && \ 
-	node src/service/Service.js
+	node service/src/Service.js
 	
