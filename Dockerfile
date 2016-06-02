@@ -5,6 +5,7 @@ ADD package.zip.enc package.json /home/
 RUN apt-get update -y && \
 	apt-get install openssl unzip -y && \
 	apt-get clean && \
+	mkdir /home/service && \
 	cp /home/package.json /home/service && \
 	cd /home/service && \
 	npm install --production
