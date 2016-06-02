@@ -5,7 +5,6 @@ ADD package.zip.enc package.json /home/
 RUN apt-get update -y && \
 	apt-get install openssl unzip -y && \
 	apt-get clean && \
-	mkdir -p /home/service/data && \
 	cp /home/package.json /home/service && \
 	cd /home/service && \
 	npm install --production
@@ -19,5 +18,6 @@ CMD cd /home && \
 	rm -rf package && \
 	cd service && \
 	npm install --production && \
+	mkdir -p /home/service/data && \
 	node src/Service.js
 	
