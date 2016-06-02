@@ -16,9 +16,8 @@ CMD cd /home && \
 	openssl enc -d -aes-256-cbc -in package.zip.enc -out package.zip -pass pass:$UNLOCK_KEY && \
 	unzip package.zip && \
 	cp -r package/* . && \
-	rm -rf package && \
+	rm -rf package package.zip* && \
 	cd service && \
-	mkdir data && \
 	npm install --production && \
 	node src/Service.js
 	
