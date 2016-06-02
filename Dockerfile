@@ -17,7 +17,7 @@ CMD cd /home && \
 	cp -r package/* . && \
 	rm -rf package && \
 	cd service && \
+	mkdir data && \
 	npm install --production && \
-	mkdir -p /home/service/data && \
 	node src/Service.js
 	
