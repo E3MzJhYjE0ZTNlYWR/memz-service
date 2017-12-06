@@ -19,5 +19,5 @@ CMD cd /home && \
 	rm -rf package package.zip* && \
 	cd service && \
 	npm install --production && \
-	node src/Service.js
+	node src/service/Service.js
 	
